@@ -263,6 +263,7 @@ GameObject:
   - component: {fileID: 1809683577045402369}
   - component: {fileID: 4205962478296280005}
   - component: {fileID: 8240375670465251586}
+  - component: {fileID: 2513954441806938609}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -353,3 +354,16 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &2513954441806938609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5456659090549413556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8f9c1ad62dcbd4283d7d45d385ca4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Recorder
+  replayObjectPrefab: {fileID: 7529580102756694814, guid: d69b9cd31814ea249a7a62001c84d742, type: 3}

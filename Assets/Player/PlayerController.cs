@@ -27,9 +27,12 @@ public class PlayerController : MonoBehaviour
      private Vector3 moveDirection = Vector3.zero;
      private float lookAngle;
 
+     private Recorder recorder;
+
      private void Awake()
      {
           cam = GetComponentInChildren<Camera>();
+          recorder = GetComponent<Recorder>();
           controller = GetComponent<CharacterController>();
           moveInput = InputSystem.actions.FindAction("Move");
           runInput = InputSystem.actions.FindAction("Sprint");
@@ -53,6 +56,11 @@ public class PlayerController : MonoBehaviour
 
           if (!controller.isGrounded)
                jumped = false;
+
+          if (Input.GetKeyDown(KeyCode.R))
+          {
+               GameEventManager.instance.CountdownEnds();
+          }
      }
 
      private void HandleMovement(Vector2 moveVector)
@@ -85,5 +93,11 @@ public class PlayerController : MonoBehaviour
      private void Jumped(InputAction.CallbackContext _)
      {
           jumped = true;
+     }
+
+     private void LateUpdate()
+     {
+          ReplayData data = new ReplayData(this.transform.position);
+          recorder.RecordReplayFrame(data);
      }
 }
