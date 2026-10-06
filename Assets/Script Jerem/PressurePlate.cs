@@ -17,7 +17,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject)
         {
             isPressed = true;
             plateRenderer.material.color = pressedColor;
@@ -28,7 +28,7 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.gameObject)
         {
             isPressed = false;
             plateRenderer.material.color = normalColor;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ReplayData 
+public class ReplayData
 {
     public Vector3 position { get; private set; }
 

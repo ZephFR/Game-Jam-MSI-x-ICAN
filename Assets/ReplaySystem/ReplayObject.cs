@@ -4,6 +4,6 @@ public class ReplayObject : MonoBehaviour
 {
     public void SetDataForFrame(ReplayData data)
     {
-        this.transform.position = data.position;
+        transform.position = data.position;
     }
 }
