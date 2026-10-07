@@ -162,7 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Recorder
   replayObjectPrefab: {fileID: 0}
-  recordingDuration: 30
+  respawnLocation: {fileID: 0}
+  player: {fileID: 0}
 --- !u!114 &8603095656676094659
 MonoBehaviour:
   m_ObjectHideFlags: 0

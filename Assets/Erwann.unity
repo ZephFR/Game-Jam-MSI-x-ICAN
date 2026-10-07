@@ -4885,7 +4885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonInteractable
   isPressed: 0
-  resetDelay: 0.5
+  resetDelay: 1
   buttonRenderer: {fileID: 1576256805}
   activeColor: {r: 0, g: 1, b: 0, a: 1}
   inactiveColor: {r: 1, g: 0, b: 0, a: 1}
@@ -6630,7 +6630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonInteractable
   isPressed: 0
-  resetDelay: 0.5
+  resetDelay: 1
   buttonRenderer: {fileID: 1893846204}
   activeColor: {r: 0, g: 1, b: 0, a: 1}
   inactiveColor: {r: 1, g: 0, b: 0, a: 1}
