@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -27,6 +28,8 @@ public class PlayerController : MonoBehaviour
     private float lookAngle;
 
     private Recorder recorder;
+
+    [SerializeField] private Transform respawnPoint;
 
     private void Awake()
     {
@@ -128,7 +131,7 @@ public class PlayerController : MonoBehaviour
             return;
 
         ReplayData data =
-            new ReplayData(transform.position);
+            new PlayerReplayData(transform.position, Quaternion.identity);
 
         recorder.RecordReplayFrame(data);
     }

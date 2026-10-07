@@ -6,62 +6,40 @@ public class Recorder : MonoBehaviour
     [Header("Prefab To Instantiate")]
     [SerializeField] private GameObject replayObjectPrefab;
 
-    [Header("Recording Settings")]
-    [SerializeField] private float recordingDuration = 30f;
-
     public Queue<ReplayData> recordingQueue { get; private set; }
 
-    
     private List<Recording> recordings;
 
-    
-    private float recordingTimer;
+    [SerializeField] private Transform respawnLocation;
+    [SerializeField] private GameObject player;
 
     private void Awake()
     {
         recordingQueue = new Queue<ReplayData>();
-
         recordings = new List<Recording>();
-
-        recordingTimer = 0f;
     }
 
     private void Start()
     {
+        GameEventManager.instance.onCountdownEnds += CountdownEnds;
         GameEventManager.instance.onRestartLevel += OnRestartLevel;
     }
 
     private void OnDestroy()
     {
-        if (GameEventManager.instance != null)
-        {
-            GameEventManager.instance.onRestartLevel -= OnRestartLevel;
-        }
+        if (GameEventManager.instance == null)
+            return;
+
+        GameEventManager.instance.onCountdownEnds -= CountdownEnds;
+        GameEventManager.instance.onRestartLevel -= OnRestartLevel;
     }
 
     private void Update()
     {
-
-        recordingTimer += Time.deltaTime;
-
-       
-        if (recordingTimer >= recordingDuration)
-        {
-            CreateReplay();
-
-            recordingTimer = 0f;
-        }
-
+        // Play every existing replay clone
         for (int i = 0; i < recordings.Count; i++)
         {
-            bool hasMoreFrames = recordings[i].PlayNextFrame();
-
-            
-            if (!hasMoreFrames)
-            {
-                
-                recordings[i].RestartFromBeginning();
-            }
+            recordings[i].PlayNextFrame(Time.deltaTime);
         }
     }
 
@@ -69,28 +47,49 @@ public class Recorder : MonoBehaviour
     {
         recordingQueue.Enqueue(data);
 
-        Debug.Log("Recorded data : " + data.position);
+        // Careful: this prints every frame.
+        // Debug.Log("Recorded data: " + data.position);
+    }
+
+    private void CountdownEnds()
+    {
+        GetComponent<CharacterController>().enabled = false;
+        player.transform.position = respawnLocation.position;
+        GetComponent<CharacterController>().enabled = true;
+
+
+        CreateReplay();
     }
 
     private void CreateReplay()
     {
         if (recordingQueue.Count == 0)
         {
-            Debug.LogWarning("Cannot create replay: recording is empty.");
+            Debug.LogWarning(
+                "Cannot create replay: recording queue is empty."
+            );
+
             return;
         }
 
+        // Create a permanent copy of the player's latest recording
         Recording newRecording = new Recording(recordingQueue);
 
+        // Spawn the clone
         newRecording.InstantiateReplayObject(replayObjectPrefab);
-        
 
+        // Keep track of it
         recordings.Add(newRecording);
+        foreach (Recording recording in recordings)
+        {
+            recording.RestartFromBeginning();
+        }
 
+        // Start recording the next attempt
         recordingQueue.Clear();
 
         Debug.Log(
-            "New replay created. Total clones: "
+            "Replay created. Total clones: "
             + recordings.Count
         );
     }
@@ -102,16 +101,21 @@ public class Recorder : MonoBehaviour
 
     private void Reset()
     {
-        
-        recordingTimer = 0f;
-        recordingQueue.Clear();
 
+        // Destroy every replay clone
         foreach (Recording recording in recordings)
         {
             recording.DestroyReplayObjectIfExists();
         }
-        
+
+        // Remove all recordings
         recordings.Clear();
+
+        // Clear the player's current unfinished recording
+        recordingQueue.Clear();
+
+
+
         Debug.Log("Recorder reset.");
     }
 }

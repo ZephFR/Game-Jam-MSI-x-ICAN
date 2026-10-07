@@ -4,6 +4,9 @@ using UnityEngine;
 public class GameEventManager : MonoBehaviour
 {
     public static GameEventManager instance { get; private set; }
+    [SerializeField] private float loopDuration;
+    private float time;
+
 
     private void Awake()
     {
@@ -15,10 +18,22 @@ public class GameEventManager : MonoBehaviour
         instance = this;
     }
 
+    private void Update()
+    {
+        time += Time.deltaTime;
+        if (time > loopDuration)
+        {
+            CountdownEnds();
+        }
+    }
+
+
     public event Action onCountdownEnds;
 
     public void CountdownEnds()
     {
+        time = 0;
+
         if (onCountdownEnds != null)
             onCountdownEnds();
     }

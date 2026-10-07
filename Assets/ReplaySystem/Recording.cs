@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Internal;
 
 public class Recording
 {
@@ -8,39 +9,51 @@ public class Recording
     private Queue<ReplayData> originalQueue;
     private Queue<ReplayData> replayQueue;
 
+    private float replayTimer;
+    private float maxReplayDuration = 30f;
+
     public Recording(Queue<ReplayData> recordingQueue)
     {
-        // On garde une copie permanente de l'enregistrement
+        // Permanent copy of the recording
         originalQueue = new Queue<ReplayData>(recordingQueue);
 
-        // Cette queue sera consommée pendant le replay
-        replayQueue = new Queue<ReplayData>(recordingQueue);
+        // Queue that will actually be consumed while replaying
+        replayQueue = new Queue<ReplayData>(originalQueue);
+
+        replayTimer = 0;
     }
 
     public void RestartFromBeginning()
     {
-        // Recrée la queue à partir de l'enregistrement original
         replayQueue = new Queue<ReplayData>(originalQueue);
+        replayTimer = 0;
+
     }
 
-    public bool PlayNextFrame()
+    public void PlayNextFrame(float deltaTime)
     {
         if (ReplayObject == null)
         {
-            Debug.LogError("ReplayObject is Null");
-            return false;
+            Debug.LogError("ReplayObject is null.");
+            return;
         }
 
+        replayTimer += deltaTime;
+        if (replayTimer >= maxReplayDuration)
+        {
+            RestartFromBeginning();
+            return;
+        }
+
+        // Safety check
         if (replayQueue.Count == 0)
         {
-            return false;
+            return;
         }
 
         ReplayData data = replayQueue.Dequeue();
 
         ReplayObject.SetDataForFrame(data);
-
-        return true;
     }
 
     public void InstantiateReplayObject(GameObject replayObjectPrefab)
@@ -51,19 +64,9 @@ public class Recording
             return;
         }
 
-        // On regarde la première position enregistrée
         ReplayData startingData = replayQueue.Peek();
-
-        // Création du clone à cette position
-        GameObject replayObject = Object.Instantiate(
-            replayObjectPrefab,
-            startingData.position,
-            Quaternion.identity
-        );
-
-        // Récupération du composant ReplayObject
+        GameObject replayObject = Object.Instantiate(replayObjectPrefab, startingData.position, Quaternion.identity);
         ReplayObject = replayObject.GetComponent<ReplayObject>();
-
         if (ReplayObject == null)
         {
             Debug.LogError(
@@ -74,10 +77,11 @@ public class Recording
 
     public void DestroyReplayObjectIfExists()
     {
-        if (ReplayObject != null)
-        {
-            Object.Destroy(ReplayObject.gameObject);
-            ReplayObject = null;
-        }
+        if (ReplayObject == null)
+            return;
+
+        Object.Destroy(ReplayObject.gameObject);
+
+        ReplayObject = null;
     }
 }
