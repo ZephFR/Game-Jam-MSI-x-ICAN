@@ -1,69 +1,57 @@
+using System.Collections;
 using UnityEngine;
 
-public class ButtonInteractable : MonoBehaviour
+public class ButtonInteractable : MonoBehaviour, IInteractible
 {
     public bool isPressed = false;
 
-    [Header("Visuel (Optionnel)")]
-    public Transform buttonMesh; 
-    public float pressDepth = 0.1f; 
+    [Header("Réglages")]
+    public float resetDelay = 0.5f; 
 
-    private Vector3 unpressedLocalPos;
-    private Vector3 pressedLocalPos;
-    private bool isPlayerNearby = false;
+    [Header("Visuel (Optionnel)")]
+    public Renderer buttonRenderer;
+    public Color activeColor = Color.green;
+    public Color inactiveColor = Color.red;
+
+    private Coroutine resetCoroutine;
 
     private void Start()
     {
-        if (buttonMesh != null)
-        {
-            unpressedLocalPos = buttonMesh.localPosition;
-            
-            pressedLocalPos = unpressedLocalPos - new Vector3(0f, pressDepth, 0f);
-        }
+        UpdateVisual();
     }
 
-    private void Update()
+    public void OnInteract()
     {
         
-        if (isPlayerNearby && Input.GetKeyDown(KeyCode.E))
-        {
-            ToggleState();
-        }
-    }
+        if (isPressed) return;
 
-    private void ToggleState()
-    {
-        isPressed = !isPressed;
+        isPressed = true;
+        UpdateVisual();
 
-        if (buttonMesh != null)
+        
+        if (resetCoroutine != null)
         {
-            buttonMesh.localPosition = isPressed ? pressedLocalPos : unpressedLocalPos;
+            StopCoroutine(resetCoroutine);
         }
 
-        Debug.Log($"{gameObject.name} appuyé : {isPressed}");
+        
+        resetCoroutine = StartCoroutine(ResetButtonAfterDelay());
     }
 
-    private void OnTriggerEnter(Collider other)
+    private IEnumerator ResetButtonAfterDelay()
     {
-        if (other.gameObject != null)
-        {
-            isPlayerNearby = true;
-        }
+        yield return new WaitForSeconds(resetDelay);
+
+        isPressed = false;
+        UpdateVisual();
+        Debug.Log($"{gameObject.name} s'est désactivé (délai écoulé).");
     }
 
-    private void OnTriggerExit(Collider other)
+    private void UpdateVisual()
     {
-        if (other.gameObject != null)
+        if (buttonRenderer != null)
         {
-            isPlayerNearby = false;
-        }
-    }
-
-    private void OnGUI()
-    {
-        if (isPlayerNearby)
-        {
-            GUI.Label(new Rect(Screen.width / 2f - 100, Screen.height / 2f + 50, 200, 30), "Appuie sur [E] pour appuyer sur le bouton");
+            buttonRenderer.material.color = isPressed ? activeColor : inactiveColor;
         }
     }
 }

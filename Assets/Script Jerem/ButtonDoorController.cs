@@ -7,20 +7,19 @@ public class ButtonDoorController : MonoBehaviour
     public ButtonInteractable button2;
 
     [Header("Réglages du mouvement")]
-    [Tooltip("Distance de glissement le long du mur (Axe Z)")]
     public float openDistance = 3f;
+    public float speed = 5f;
 
-    [Tooltip("Vitesse de déplacement")]
-    public float speed = 3f;
+    [Tooltip("Cochez si la porte doit rester ouverte définitivement une fois déclenchée")]
+    public bool stayOpenPermanent = true;
 
     private Vector3 closedPosition;
     private Vector3 openPosition;
+    private bool hasBeenOpened = false;
 
     private void Start()
     {
         closedPosition = transform.position;
-
-        
         openPosition = closedPosition + (transform.forward * openDistance);
     }
 
@@ -29,8 +28,12 @@ public class ButtonDoorController : MonoBehaviour
         if (button1 == null || button2 == null) return;
 
         
-        bool shouldOpen = button1.isPressed && button2.isPressed;
+        if (button1.isPressed && button2.isPressed)
+        {
+            hasBeenOpened = true;
+        }
 
+        bool shouldOpen = stayOpenPermanent ? hasBeenOpened : (button1.isPressed && button2.isPressed);
         Vector3 targetPosition = shouldOpen ? openPosition : closedPosition;
 
         transform.position = Vector3.MoveTowards(

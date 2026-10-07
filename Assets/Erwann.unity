@@ -1522,6 +1522,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2513954441806938609, guid: a12eeb9c0366f8f44a69ed505e0bd670, type: 3}
+      propertyPath: respawnLocation
+      value: 
+      objectReference: {fileID: 1352366956}
     - target: {fileID: 5456659090549413556, guid: a12eeb9c0366f8f44a69ed505e0bd670, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2665,6 +2669,7 @@ GameObject:
   - component: {fileID: 968415804}
   - component: {fileID: 968415803}
   - component: {fileID: 968415802}
+  - component: {fileID: 968415806}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -2759,12 +2764,25 @@ Transform:
   m_GameObject: {fileID: 968415801}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -36.714, y: 2.8048, z: 0.066279}
+  m_LocalPosition: {x: -36.714, y: 2.91, z: 0.066279}
   m_LocalScale: {x: 14.734243, y: 0.020438751, z: 10.531216}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &968415806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 968415801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2036ab53f3f2ca14a9bf85cd9d812772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameEventManager
+  loopDuration: 15
 --- !u!1 &985972826
 GameObject:
   m_ObjectHideFlags: 0
@@ -3278,6 +3296,7 @@ MonoBehaviour:
   button2: {fileID: 1893846201}
   openDistance: 3
   speed: 3
+  stayOpenPermanent: 1
 --- !u!1 &1077922915
 GameObject:
   m_ObjectHideFlags: 0
@@ -4383,6 +4402,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &1352366955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1352366956}
+  m_Layer: 0
+  m_Name: Spawntranssform
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1352366956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1352366955}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -29.924, y: 4.36, z: -0.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1362407612
 GameObject:
   m_ObjectHideFlags: 0
@@ -4835,8 +4885,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonInteractable
   isPressed: 0
-  buttonMesh: {fileID: 1576256807}
-  pressDepth: 0.1
+  resetDelay: 0.5
+  buttonRenderer: {fileID: 1576256805}
+  activeColor: {r: 0, g: 1, b: 0, a: 1}
+  inactiveColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!54 &1576256803
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4883,8 +4935,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 2.2804823, y: 1, z: 1.7226293}
+  m_Center: {x: -0.22878864, y: 0, z: -0.36131445}
 --- !u!23 &1576256805
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -6578,8 +6630,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonInteractable
   isPressed: 0
-  buttonMesh: {fileID: 1893846206}
-  pressDepth: 0.1
+  resetDelay: 0.5
+  buttonRenderer: {fileID: 1893846204}
+  activeColor: {r: 0, g: 1, b: 0, a: 1}
+  inactiveColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!54 &1893846202
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6626,8 +6680,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 3.4871483, y: 1, z: 2.1895}
+  m_Center: {x: -0.06454809, y: 0, z: 0.59474945}
 --- !u!23 &1893846204
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -7944,3 +7998,4 @@ SceneRoots:
   - {fileID: 1893846206}
   - {fileID: 1152526683}
   - {fileID: 1414699940}
+  - {fileID: 1352366956}
