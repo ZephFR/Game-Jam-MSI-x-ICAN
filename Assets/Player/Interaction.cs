@@ -13,6 +13,8 @@ public class Interaction : MonoBehaviour
     [SerializeField] private float interactionRange;
     [SerializeField] private KeyCode interactKey;
     
+    [SerializeField] private Recorder recorder;
+    
     // Update is called once per frame
     void Update()
     {
@@ -24,6 +26,7 @@ public class Interaction : MonoBehaviour
                 if (hitInfo.collider.gameObject.TryGetComponent(out IInteractible interactible))
                 {
                     interactible.OnInteract();
+                    recorder.RecordInteraction(interactible);
                 }
             }
         }

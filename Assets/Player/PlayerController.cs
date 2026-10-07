@@ -125,12 +125,7 @@ public class PlayerController : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (recorder == null)
-            return;
-
-        ReplayData data =
-            new PlayerReplayData(transform.position, Quaternion.identity);
-
+        ReplayData data = new PlayerReplayData(transform.position, transform.rotation);
         recorder.RecordReplayFrame(data);
     }
 }

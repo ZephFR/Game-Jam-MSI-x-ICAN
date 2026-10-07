@@ -13,6 +13,8 @@ public class Recorder : MonoBehaviour
     [SerializeField] private Transform respawnLocation;
     [SerializeField] private GameObject player;
 
+    private IInteractible interactionThisFrame;
+    
     private void Awake()
     {
         recordingQueue = new Queue<ReplayData>();
@@ -117,7 +119,21 @@ public class Recorder : MonoBehaviour
         recordingQueue.Clear();
 
 
-
+        interactionThisFrame = null;
         Debug.Log("Recorder reset.");
+    }
+    
+    public void RecordInteraction(IInteractible interactible)
+    {
+        interactionThisFrame = interactible;
+    }
+
+    public IInteractible ConsumeInteraction()
+    {
+        IInteractible interaction = interactionThisFrame;
+
+        interactionThisFrame = null;
+
+        return interaction;
     }
 }
