@@ -74,12 +74,14 @@ public class Recorder : MonoBehaviour
 
         // Create a permanent copy of the player's latest recording
         Recording newRecording = new Recording(recordingQueue);
-
-        // Spawn the clone
-        newRecording.InstantiateReplayObject(replayObjectPrefab);
+        
+        if (recordings.Count < 8)
+        {
+            newRecording.InstantiateReplayObject(replayObjectPrefab);
+            recordings.Add(newRecording);
+        }
 
         // Keep track of it
-        recordings.Add(newRecording);
         foreach (Recording recording in recordings)
         {
             recording.RestartFromBeginning();
