@@ -14,6 +14,7 @@ public class Recording
 
     private AudioClip recordedAudio;
     private AudioSource replayAudioSource;
+    private float replayPitch;
 
     public Recording(Queue<ReplayData> recordingQueue, AudioClip audioClip)
     {
@@ -25,6 +26,8 @@ public class Recording
         
         recordedAudio = audioClip;
         replayTimer = 0;
+
+        replayPitch = Random.Range(0.7f, 1.25f);
     }
 
     public void RestartFromBeginning()
@@ -95,6 +98,7 @@ public class Recording
 
         if (replayAudioSource != null && recordedAudio != null)
         {
+            replayAudioSource.pitch = replayPitch;
             replayAudioSource.clip = recordedAudio;
             replayAudioSource.Play();
         }
