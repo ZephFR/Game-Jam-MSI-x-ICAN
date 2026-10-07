@@ -12,14 +12,18 @@ public class Recording
     private float replayTimer;
     private float maxReplayDuration = 30f;
 
-    public Recording(Queue<ReplayData> recordingQueue)
+    private AudioClip recordedAudio;
+    private AudioSource replayAudioSource;
+
+    public Recording(Queue<ReplayData> recordingQueue, AudioClip audioClip)
     {
         // Permanent copy of the recording
         originalQueue = new Queue<ReplayData>(recordingQueue);
 
         // Queue that will actually be consumed while replaying
         replayQueue = new Queue<ReplayData>(originalQueue);
-
+        
+        recordedAudio = audioClip;
         replayTimer = 0;
     }
 
@@ -28,6 +32,18 @@ public class Recording
         replayQueue = new Queue<ReplayData>(originalQueue);
         replayTimer = 0;
 
+        if (ReplayObject != null && replayQueue.Count > 0)
+        {
+            ReplayData startingData = replayQueue.Peek();
+            ReplayObject.SetDataForFrame(startingData);
+        }
+
+        if (replayAudioSource != null && recordedAudio != null)
+        {
+            replayAudioSource.Stop();
+            replayAudioSource.clip = recordedAudio;
+            replayAudioSource.Play();
+        }
     }
 
     public void PlayNextFrame(float deltaTime)
@@ -66,12 +82,21 @@ public class Recording
 
         ReplayData startingData = replayQueue.Peek();
         GameObject replayObject = Object.Instantiate(replayObjectPrefab, startingData.position, Quaternion.identity);
+
         ReplayObject = replayObject.GetComponent<ReplayObject>();
+        replayAudioSource = replayObject.GetComponent<AudioSource>();
+        
         if (ReplayObject == null)
         {
             Debug.LogError(
                 "The replay prefab does not have a ReplayObject component."
             );
+        }
+
+        if (replayAudioSource != null && recordedAudio != null)
+        {
+            replayAudioSource.clip = recordedAudio;
+            replayAudioSource.Play();
         }
     }
 

@@ -5,7 +5,7 @@ public class PlayerReplayObject : ReplayObject
     public override void SetDataForFrame(ReplayData data)
     {
         PlayerReplayData playerData = (PlayerReplayData)data;
-        transform.position = playerData.position;
+        transform.position = playerData.position;   
         transform.rotation = playerData.dir;
 
         if (playerData.interactedObject != null)
