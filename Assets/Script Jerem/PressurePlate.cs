@@ -3,9 +3,9 @@ using UnityEngine;
 public class PressurePlate : MonoBehaviour
 {
     public bool isPressed = false;
+    private int objectsOnPlate = 0;
 
     private Renderer plateRenderer;
-
     public Color normalColor = Color.red;
     public Color pressedColor = Color.green;
 
@@ -17,23 +17,20 @@ public class PressurePlate : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject)
-        {
-            isPressed = true;
-            plateRenderer.material.color = pressedColor;
-
-            Debug.Log("Pressure Plate pressed");
-        }
+        objectsOnPlate++;
+        UpdateState();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject)
-        {
-            isPressed = false;
-            plateRenderer.material.color = normalColor;
+        objectsOnPlate--;
+        if (objectsOnPlate < 0) objectsOnPlate = 0;
+        UpdateState();
+    }
 
-            Debug.Log("Pressure Plate released");
-        }
+    private void UpdateState()
+    {
+        isPressed = objectsOnPlate > 0;
+        plateRenderer.material.color = isPressed ? pressedColor : normalColor;
     }
 }
