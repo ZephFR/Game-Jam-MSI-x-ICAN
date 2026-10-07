@@ -29,8 +29,6 @@ public class PlayerController : MonoBehaviour
 
     private Recorder recorder;
 
-    [SerializeField] private Transform respawnPoint;
-
     private void Awake()
     {
         cam = GetComponentInChildren<Camera>();
