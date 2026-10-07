@@ -476,3 +476,4 @@ MonoBehaviour:
   interactionOrigin: {fileID: 7523345028717321255}
   interactionRange: 10
   interactKey: 101
+  recorder: {fileID: 2513954441806938609}
