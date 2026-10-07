@@ -2,31 +2,39 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
+    [Header("Déclencheurs")]
     public PressurePlate plate1;
     public PressurePlate plate2;
 
-    public Transform openPosition;
-    public Transform closedPosition;
+    [Header("Réglages du mouvement")]
+    [Tooltip("Distance de glissement le long du mur")]
+    public float openDistance = 3f;
 
-    public float speed = 2f;
+    [Tooltip("Vitesse de déplacement")]
+    public float speed = 3f;
 
-    void Update()
+    private Vector3 closedPosition;
+    private Vector3 openPosition;
+
+    private void Start()
     {
-        if (plate1.isPressed && plate2.isPressed)
-        {
-            transform.position = Vector3.Lerp(
-                transform.position,
-                openPosition.position,
-                speed * Time.deltaTime
-            );
-        }
-        else
-        {
-            transform.position = Vector3.Lerp(
-                transform.position,
-                closedPosition.position,
-                speed * Time.deltaTime
-            );
-        }
+        closedPosition = transform.position;
+
+        
+        openPosition = closedPosition + (transform.forward * openDistance);
+    }
+
+    private void Update()
+    {
+        if (plate1 == null || plate2 == null) return;
+
+        bool bothPressed = plate1.isPressed && plate2.isPressed;
+        Vector3 targetPosition = bothPressed ? openPosition : closedPosition;
+
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            targetPosition,
+            speed * Time.deltaTime
+        );
     }
 }
