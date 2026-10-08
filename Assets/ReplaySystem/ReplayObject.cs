@@ -1,9 +1,6 @@
 using UnityEngine;
 
-public class ReplayObject : MonoBehaviour
+public abstract class ReplayObject : MonoBehaviour
 {
-    public void SetDataForFrame(ReplayData data)
-    {
-        transform.position = data.position;
-    }
+    public abstract void SetDataForFrame(ReplayData data);
 }
