@@ -378,6 +378,7 @@ Transform:
   - {fileID: 7523345028717321255}
   - {fileID: 1683535972470118676}
   - {fileID: 8974346305357298942}
+  - {fileID: 2411883677679668917}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1809683577045402369
@@ -461,6 +462,7 @@ MonoBehaviour:
   replayObjectPrefab: {fileID: 7529580102756694814, guid: d69b9cd31814ea249a7a62001c84d742, type: 3}
   respawnLocation: {fileID: 0}
   player: {fileID: 5456659090549413556}
+  microphoneFrequency: 44100
 --- !u!114 &5100392582527586775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,3 +479,34 @@ MonoBehaviour:
   interactionRange: 10
   interactKey: 101
   recorder: {fileID: 2513954441806938609}
+--- !u!1 &7702553955195690530
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2411883677679668917}
+  m_Layer: 0
+  m_Name: HoldPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2411883677679668917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7702553955195690530}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.011, y: 1.448, z: 0.982}
+  m_LocalScale: {x: 2.098642, y: 2.098642, z: 2.098642}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 128002101211350332}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
