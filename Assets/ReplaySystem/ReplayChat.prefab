@@ -1617,6 +1617,18 @@ PrefabInstance:
       value: 0.000097627
       objectReference: {fileID: 0}
     - target: {fileID: -1468686119430589773, guid: 560d73cf82b2da2498ebec46c6e978ed, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.96465
+      objectReference: {fileID: 0}
+    - target: {fileID: -1468686119430589773, guid: 560d73cf82b2da2498ebec46c6e978ed, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9646499
+      objectReference: {fileID: 0}
+    - target: {fileID: -1468686119430589773, guid: 560d73cf82b2da2498ebec46c6e978ed, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.96465
+      objectReference: {fileID: 0}
+    - target: {fileID: -1468686119430589773, guid: 560d73cf82b2da2498ebec46c6e978ed, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -24.33713
       objectReference: {fileID: 0}
@@ -3615,13 +3627,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4399201627525799321}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d086033321606484aabfe1924329e163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HeadAudioScaler
-  headBone: {fileID: 0}
+  headBone: {fileID: 8606287074065319035}
   audioSource: {fileID: 3792834369893936476}
   sensitivity: 10
-  maxScale: 2
-  smoothSpeed: 15
+  maxScale: 5.45
+  smoothSpeed: 57.4
+--- !u!4 &8606287074065319035 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5090157458945533107, guid: 560d73cf82b2da2498ebec46c6e978ed, type: 3}
+  m_PrefabInstance: {fileID: 3588369737323897032}
+  m_PrefabAsset: {fileID: 0}
