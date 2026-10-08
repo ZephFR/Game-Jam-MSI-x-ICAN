@@ -124,8 +124,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6192141810554540299}
   - component: {fileID: 6819352687951594406}
-  - component: {fileID: 8603095656676094659}
   - component: {fileID: 3750675180092967655}
+  - component: {fileID: 3353420925624537165}
   m_Layer: 3
   m_Name: PlayerReplayObject
   m_TagString: Player
@@ -164,18 +164,7 @@ MonoBehaviour:
   replayObjectPrefab: {fileID: 0}
   respawnLocation: {fileID: 0}
   player: {fileID: 0}
---- !u!114 &8603095656676094659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7529580102756694814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe6afdb46ec1674f9a6b488f0eef0f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ReplayObject
+  microphoneFrequency: 44100
 --- !u!54 &3750675180092967655
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -203,3 +192,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &3353420925624537165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7529580102756694814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 052896b725d875f41b8583b06f583cc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerReplayObject
