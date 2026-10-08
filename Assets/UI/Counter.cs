@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class CounterDisplay : MonoBehaviour
 {
-    public MonoBehaviour sourceScript;     // ton script existant
-    public string variableName;            // nom exact de la variable
-    public TextMeshProUGUI valueText;      // le texte à changer
+    public MonoBehaviour sourceScript;   
+    public string variableName;           
+    public TextMeshProUGUI valueText;     
 
     FieldInfo field;
     PropertyInfo property;
