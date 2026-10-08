@@ -10,7 +10,26 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba9cb4e1-833f-4676-85b6-7cfeef92751c" name="Changes" comment="" />
+    <list default="true" id="ba9cb4e1-833f-4676-85b6-7cfeef92751c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Game-Jam-MSI-x-ICAN/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game-Jam-MSI-x-ICAN/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/FinalScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FinalScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GameEventManager/GameEventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameEventManager/GameEventManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/WoolProgressBar.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Script/WoolProgressBar.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/Idk.uxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/Idk.uxml.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/New Panel Settings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/New Panel Settings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/PanelSettings.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/PanelSettings.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/ProgressBar.uss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/ProgressBar.uss.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/UnityThemes.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss.meta" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,61 +53,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000000066953" />
-      <entry key="MS500" value="1.0058230874484333" />
-      <entry key="S2" value="1.276241121199978" />
-      <entry key="S5" value="1.5977441455432286" />
-      <entry key="S10" value="1.7731391501814073" />
-      <entry key="S30" value="1.9178095138540838" />
-      <entry key="S60" value="1.9580237543266261" />
-      <entry key="M2" value="1.9787868789101264" />
-      <entry key="M5" value="1.991460132497144" />
-      <entry key="M10" value="1.9957244735296211" />
-      <entry key="M15" value="1.997609303221914" />
-      <entry key="M30" value="2.059341115864" />
-      <entry key="H1" value="2.696073441372681" />
-      <entry key="H2" value="4.360249048424733" />
-      <entry key="H4" value="6.345312434568169" />
-      <entry key="D1" value="9.226209092401916" />
-      <entry key="W1" value="9.884580572643065" />
+      <entry key="MS100" value="4.273519659089529E-8" />
+      <entry key="MS500" value="0.03358591165173441" />
+      <entry key="S2" value="0.42809414227322845" />
+      <entry key="S5" value="0.7122225404442445" />
+      <entry key="S10" value="0.8439327819466692" />
+      <entry key="S30" value="0.9450090168122113" />
+      <entry key="S60" value="0.9721157424982224" />
+      <entry key="M2" value="0.9859601573788656" />
+      <entry key="M5" value="1.0103730143321277" />
+      <entry key="M10" value="1.5190886160760226" />
+      <entry key="M15" value="2.6886055430995643" />
+      <entry key="M30" value="6.520852320661659" />
+      <entry key="H1" value="11.324579133594348" />
+      <entry key="H2" value="16.11524388109832" />
+      <entry key="H4" value="20.244276924997155" />
+      <entry key="D1" value="25.60364607327751" />
+      <entry key="W1" value="26.79227789343874" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="8.819830478742931E-73" />
-      <entry key="MS500" value="3.882326421592643E-15" />
-      <entry key="S2" value="2.496163404809381E-4" />
-      <entry key="S5" value="0.03621672744448601" />
-      <entry key="S10" value="0.19030692957558326" />
-      <entry key="S30" value="0.5751991039038301" />
-      <entry key="S60" value="0.7584188182685278" />
-      <entry key="M2" value="0.8708724466123198" />
-      <entry key="M5" value="0.9461975519382448" />
-      <entry key="M10" value="0.9727301760292586" />
-      <entry key="M15" value="0.9821578293662993" />
-      <entry key="M30" value="1.0451816841689479" />
-      <entry key="H1" value="1.6119681365689016" />
-      <entry key="H2" value="3.0749517367969545" />
-      <entry key="H4" value="4.8119762391565235" />
-      <entry key="D1" value="7.325774152466214" />
-      <entry key="W1" value="7.899453220269947" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0000000083191023" />
+      <entry key="M5" value="1.0005861794451054" />
+      <entry key="M10" value="1.024211225431036" />
+      <entry key="M15" value="1.0837267444420537" />
+      <entry key="M30" value="1.3051639666571877" />
+      <entry key="H1" value="1.8710181070852958" />
+      <entry key="H2" value="3.26033947072352" />
+      <entry key="H4" value="5.125638363169529" />
+      <entry key="D1" value="8.140272822370807" />
+      <entry key="W1" value="8.870562752715268" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.0011613350732448443" />
-      <entry key="MS500" value="0.25887255069256265" />
-      <entry key="S2" value="0.8000443210813687" />
-      <entry key="S5" value="1.2793946479361982" />
-      <entry key="S10" value="1.7207483650454178" />
-      <entry key="S30" value="2.3844523280119274" />
-      <entry key="S60" value="2.656956141212234" />
-      <entry key="M2" value="2.818413372580099" />
-      <entry key="M5" value="2.924768755283898" />
-      <entry key="M10" value="2.961942384010155" />
-      <entry key="M15" value="2.975408698134091" />
-      <entry key="M30" value="3.1022280304977796" />
-      <entry key="H1" value="4.306324788612455" />
-      <entry key="H2" value="7.433600632838273" />
-      <entry key="H4" value="11.15604663645051" />
-      <entry key="D1" value="16.55166939603067" />
-      <entry key="W1" value="17.783985470186646" />
+      <entry key="MS100" value="8.572464590357029E-5" />
+      <entry key="MS500" value="0.174730383045349" />
+      <entry key="S2" value="1.007019360096723" />
+      <entry key="S5" value="1.5089187066354317" />
+      <entry key="S10" value="1.7350544802249492" />
+      <entry key="S30" value="1.90694683701773" />
+      <entry key="S60" value="1.9528522814396927" />
+      <entry key="M2" value="1.9762694619982883" />
+      <entry key="M5" value="2.0070490178076605" />
+      <entry key="M10" value="2.541007818053633" />
+      <entry key="M15" value="3.7702782628757916" />
+      <entry key="M30" value="7.824090938696619" />
+      <entry key="H1" value="13.193806400833818" />
+      <entry key="H2" value="19.373885792406927" />
+      <entry key="H4" value="25.368561981513796" />
+      <entry key="D1" value="33.743560524812175" />
+      <entry key="W1" value="35.66278488906007" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -100,25 +119,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Jeremiah&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "git-widget-placeholder": "Erwann",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\6000.3.25f1\Editor\Unity.exe" />

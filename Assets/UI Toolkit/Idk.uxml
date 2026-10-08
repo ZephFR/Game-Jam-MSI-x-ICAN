@@ -1,4 +1,0 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/ProgressBar.uss?fileID=7433441132597879392&amp;guid=3eb8ecc0be60c9143a633cbc436f3c9e&amp;type=3#ProgressBar"/>
-    <ui:ProgressBar value="0" title="my-progress" name="Time"/>
-</ui:UXML>

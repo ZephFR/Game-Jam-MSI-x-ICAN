@@ -5,7 +5,7 @@ public class GameEventManager : MonoBehaviour
 {
     public static GameEventManager instance { get; private set; }
     [SerializeField] private float loopDuration;
-    private float time;
+    public float time;
 
 
     private void Awake()
