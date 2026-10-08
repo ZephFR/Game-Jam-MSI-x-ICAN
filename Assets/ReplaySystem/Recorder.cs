@@ -15,6 +15,7 @@ public class Recorder : MonoBehaviour
     [SerializeField] private GameObject player;
 
     private IInteractible interactionThisFrame;
+    public float clonesRemain;
 
     [SerializeField] private int microphoneFrequency = 44100;
 
@@ -51,6 +52,8 @@ public class Recorder : MonoBehaviour
         {
             recordings[i].PlayNextFrame(Time.deltaTime);
         }
+
+        clonesRemain = 8 - recordings.Count;
     }
 
     public void RecordReplayFrame(ReplayData data)
