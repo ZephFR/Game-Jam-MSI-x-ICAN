@@ -1,9 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
-using UnityEditor.ShaderGraph.Internal;
 
 public class Recording
 {
+    // Liste statique de tous les enregistrements actifs dans la scène
+    private static List<Recording> activeRecordings = new List<Recording>();
+
     public ReplayObject ReplayObject { get; private set; }
 
     private Queue<ReplayData> originalQueue;
@@ -91,9 +93,7 @@ public class Recording
         
         if (ReplayObject == null)
         {
-            Debug.LogError(
-                "The replay prefab does not have a ReplayObject component."
-            );
+            Debug.LogError("The replay prefab does not have a ReplayObject component.");
         }
 
         if (replayAudioSource != null && recordedAudio != null)
@@ -102,6 +102,13 @@ public class Recording
             replayAudioSource.clip = recordedAudio;
             replayAudioSource.Play();
         }
+
+        // Ajout de cet enregistrement et mise à jour globale des volumes
+        if (!activeRecordings.Contains(this))
+        {
+            activeRecordings.Add(this);
+        }
+        UpdateAllVolumes();
     }
 
     public void DestroyReplayObjectIfExists()
@@ -110,7 +117,31 @@ public class Recording
             return;
 
         Object.Destroy(ReplayObject.gameObject);
-
         ReplayObject = null;
+
+        // Retrait de la liste et mise à jour des volumes restants
+        activeRecordings.Remove(this);
+        UpdateAllVolumes();
+    }
+
+    /// <summary>
+    /// Recalcule le volume de chaque clone selon son ordre d'apparition.
+    /// Dernier clone = 100%, avant-dernier = 50%, etc.
+    /// </summary>
+    private static void UpdateAllVolumes()
+    {
+        int count = activeRecordings.Count;
+        for (int i = 0; i < count; i++)
+        {
+            Recording rec = activeRecordings[i];
+            if (rec.replayAudioSource != null)
+            {
+                // Nombre de cran(s) par rapport au plus récent
+                int stepsBack = (count - 1) - i;
+                
+                // Volume = 1 / (2 ^ stepsBack)
+                rec.replayAudioSource.volume = Mathf.Pow(0.5f, stepsBack);
+            }
+        }
     }
 }
