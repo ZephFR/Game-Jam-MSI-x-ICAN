@@ -12,23 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="ba9cb4e1-833f-4676-85b6-7cfeef92751c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Game-Jam-MSI-x-ICAN/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Game-Jam-MSI-x-ICAN/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/FinalScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/FinalScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/GameEventManager/GameEventManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GameEventManager/GameEventManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/WoolProgressBar.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Script/WoolProgressBar.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/Idk.uxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/Idk.uxml.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/New Panel Settings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/New Panel Settings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/PanelSettings.asset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/PanelSettings.asset.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/ProgressBar.uss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/ProgressBar.uss.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/UnityThemes.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/UI Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss.meta" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
