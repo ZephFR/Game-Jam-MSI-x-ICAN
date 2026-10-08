@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f8f9c1ad62dcbd4283d7d45d385ca4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Recorder
-  replayObjectPrefab: {fileID: 7529580102756694814, guid: d69b9cd31814ea249a7a62001c84d742, type: 3}
+  replayObjectPrefab: {fileID: 4399201627525799321, guid: d684f9ad767b47346af754dbb451befd, type: 3}
   respawnLocation: {fileID: 0}
   player: {fileID: 5456659090549413556}
   microphoneFrequency: 44100
